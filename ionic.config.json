@@ -1,0 +1,5 @@
+{
+  "name": "Text Encoding Converter",
+  "app_id": "com.emironuk.textencodingconverter",
+  "gulpStartupTasks": ["sass", "watch"]
+}

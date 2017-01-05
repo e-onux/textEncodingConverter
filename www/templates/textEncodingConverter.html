@@ -1,0 +1,44 @@
+<ion-view title="Text Encoding Converter" id="page2">
+  <ion-content padding="true" class="has-header">
+    <div id="textEncodingConverter-markdown2" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;color:#000000;">Choose your
+        <strong>file:</strong>
+      </p>
+    </div>
+    <div id="textEncodingConverter-container3">
+      <button ng-click="choose()" id="textEncodingConverter-button7" class="button button-positive  button-block icon ion-android-folder-open"> Choose File...</button>
+      <div ng-bind="uri" ng-model="uri" id="textEncodingConverter-markdown10" class="show-list-numbers-and-dots path"></div>
+    </div>
+    <div class="spacer" style="width: 268px; height: 7px;"></div>
+    <div id="textEncodingConverter-markdown4" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;color:#000000;">Set
+        <strong>encoding character set:</strong>
+      </p>
+    </div>
+    <div class="spacer" style="width: 268px; height: 7px;"></div>
+    <ion-list id="textEncodingConverter-list1">
+      <ion-item class="item-divider" id="textEncodingConverter-list-item-divider2"> File Encoding</ion-item>
+      <label class="item item-select" id="textEncodingConverter-select1">
+        <span class="input-label"></span>
+        <select ng-model="$parent.fromCharset" ng-init="$parent.fromCharset='#'">
+          <option value="#">Choose File Charset</option>
+          <option ng-repeat="charsetF in charsetsAvailable" value="{{charsetF.converter}}">{{charsetF.visible}}</option>
+        </select>
+      </label>
+      <ion-item class="item-divider" id="textEncodingConverter-list-item-divider1"> To Convert Encoding</ion-item>
+      <label class="item item-select" id="textEncodingConverter-select2">
+        <span class="input-label"></span>
+        <select ng-model="$parent.toCharset" ng-init="$parent.toCharset='#'">
+          <option value="#">Choose Charset to Convert</option>
+          <option ng-repeat="charsetT in charsetsAvailable" value="{{charsetT.converter}}">{{charsetT.visible}}</option>
+        </select>
+      </label>
+    </ion-list>
+    <div class="spacer" style="width: 268px; height: 9px;"></div>
+    <div id="textEncodingConverter-markdown5" class="show-list-numbers-and-dots">
+      <p style="margin-top:0px;color:#000000;">
+        <strong>Save</strong> your file:</p>
+    </div>
+    <button ng-click="save()" ng-disabled="saveDisabled" id="textEncodingConverter-button8" class="button button-positive  button-block">Save</button>
+  </ion-content>
+</ion-view>
