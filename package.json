@@ -1,7 +1,7 @@
 {
   "name": "textencodingconverter",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An open source Android text file charset encoding converter.",
   "dependencies": {
     "buffer": "^5.0.2",

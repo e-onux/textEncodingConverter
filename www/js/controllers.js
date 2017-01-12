@@ -47,12 +47,15 @@ angular.module('app.controllers', ['ionic'])
                 for(y in $scope.charsetsAvailable[x].codes){
                   if(charGuessing.encoding.toUpperCase()==$scope.charsetsAvailable[x].codes[y]){
                     console.log("scope1:");console.log($scope);
-                    $scope.fromCharset = $scope.charsetsAvailable[x].converter;
-                    $scope.$apply();
+                    var probability = Math.round((Math.max(charGuessing.confidence,0.9)-0.9) * 1000);
+                    if(probability>50){
+                      $scope.fromCharset = $scope.charsetsAvailable[x].converter;
+                      $scope.$apply();
+                    }
                     $ionicPopup.alert({
                        title: 'Encoding Detected',
                        template:  "Encoding detected with "+
-                       (charGuessing.confidence * 100).toString()+"% confidence: "+$scope.charsetsAvailable[x].visible
+                       (probability).toString()+"% confidence: "+$scope.charsetsAvailable[x].visible
                      });
                     console.log($scope.charsetsAvailable[x]);
                   }
