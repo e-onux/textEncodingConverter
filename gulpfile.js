@@ -16,7 +16,7 @@ var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass', 'lint', 'browserify']);
+gulp.task('default', ['sass', 'lint']);
 
 gulp.task('lint', function() {
  gulp.src(['./www/js/**/*.js'])
@@ -25,12 +25,6 @@ gulp.task('lint', function() {
   .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('browserify', function() {
- return browserify('./www/js/app.js', {debug: true})
-  .bundle()
-  .pipe(vinylSource('bundle.js'))
-  .pipe(gulp.dest('./www/dist'));
-});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
