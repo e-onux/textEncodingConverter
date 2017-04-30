@@ -1,9 +1,10 @@
 {
   "name": "textencodingconverter",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "An open source Android text file charset encoding converter.",
   "dependencies": {
+    "@ionic-native/file-chooser": "^3.5.0",
     "buffer": "^5.0.2",
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",

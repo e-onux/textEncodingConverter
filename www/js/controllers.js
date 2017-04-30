@@ -6,8 +6,10 @@ angular.module('app.controllers', ['ionic'])
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
   function ($scope, $stateParams, $ionicPopup) {
     $scope.saveDisabled = true;
+
     $scope.choose = function(){
-      window.plugins.mfilechooser.open([], function (uri) {
+      window.plugins.filechooser.open({}, function (data) {
+        uri = data.filepath;
         $scope.uri=uri;
         $scope.$apply();
         $scope.filePath = uri.substring(0,uri.lastIndexOf("\/")+1);
@@ -24,6 +26,11 @@ angular.module('app.controllers', ['ionic'])
     $scope.fileRead = function(){
       console.log("scope0:");console.log($scope);
       console.log("file path:"+$scope.filePath);
+      console.log("file cordova.file.dataDirectory:"+cordova.file.dataDirectory);
+      console.log("file cordova.file.externalDataDirectory:"+cordova.file.externalDataDirectory);
+      //console.log("file fileSystem.root.toURL:"+fileSystem.root.toURL());
+      console.log("file Context.getExternalFilesDirs:"+Context.getExternalFilesDirs());
+
       window.resolveLocalFileSystemURL("file://"+$scope.filePath, function (dirEntry) {
         console.log('file system open: ' + dirEntry.name);
         $scope.dirEntry = dirEntry;
